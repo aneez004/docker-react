@@ -7,3 +7,20 @@ before_install:
 
 script:
  - docker run aneez004/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "dockerreact-anees"
+  env: "DockerreactAnees-env"
+  bucket_name: "elasticbeanstalk-us-east-2-599638353756"
+  bucket_path: "dockerreact-anees"
+  
+on:
+ branch: master
+
+access_key_id: $Access_key_ID
+secret_access_key: 
+  secure: $(Secret_access_key)
+
+
